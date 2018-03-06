@@ -11,26 +11,26 @@ Each test is a dict with
 TESTS = {
     "Basics": [
         {
-            "input": "my_function_name",
-            "answer": "MyFunctionName"
+            "input": "MyFunctionName",
+            "answer": "my_function_name"
         },
         {
-            "input": "i_phone",
-            "answer": "IPhone"
+            "input": "IPhone",
+            "answer": "i_phone"
         }
     ],
     "Extra": [
         {
-            "input": "this_function_is_empty",
-            "answer": "ThisFunctionIsEmpty"
+            "input": "ThisFunctionIsEmpty",
+            "answer": "this_function_is_empty"
         },
         {
-            "input": "name",
-            "answer": "Name"
+            "input": "Name",
+            "answer": "name"
         },
 	{
-            "input": "this_is_really_very_long_string",
-            "answer": "ThisIsReallyVeryLongString"
+            "input": "ThisIsReallyVeryLongString",
+            "answer": "this_is_really_very_long_string"
         }
     ]
 }

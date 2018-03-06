@@ -1,7 +1,7 @@
 <!-- Describe task in general -->
 
 <p>
-    Ваша задача - написать функцию, которая преобразовывает текст (название другой функции) из формата, принятого в Python (my_function_name) в CamelCase, принятый в JavaScript (MyFunctionName), где первая буква каждого слова - большая/заглавная.
+    Ваша задача - написать функцию, которая преобразовывает текст (название другой функции) из формата CamelCase, принятого в JavaScript (MyFunctionName) в формат, принятый в Python (my_function_name), где все буквы - маленькие, а слова соединены знаком нижнего подчеркивания "_".
 </p>
 
 <!--<p style="text-align: center;">
@@ -10,11 +10,11 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Входные данные: </strong> Название функции как строка
+    <strong>Входные данные: </strong> Название функции как строка в CamelCase
 </p>
 
 <p>
-    <strong>Output: </strong> То же самое название, но в CamelCase
+    <strong>Output: </strong> То же самое название, но в under_score
 </p>
 
 
@@ -24,16 +24,16 @@
 <strong>Примеры:</strong>
 </p>
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">toCamelCase("my_function_name") == "MyFunctionName"
-toCamelCase("i_phone") == "IPhone"
-toCamelCase("this_function_is_empty") == "ThisFunctionIsEmpty"
-toCamelCase("name") == "Name"
+<pre class="brush: javascript">fromCamelCase("MyFunctionName") == "my_function_name"
+fromCamelCase("IPhone") == "i_phone"
+fromCamelCase("ThisFunctionIsEmpty") == "this_function_is_empty"
+fromCamelCase("Name") == "name"
 </pre>
 {% else %}
-<pre class="brush: python">to_CamelCase("my_function_name") == "MyFunctionName"
-to_CamelCase("i_phone") == "IPhone"
-to_CamelCase("this_function_is_empty") == "ThisFunctionIsEmpty"
-to_CamelCase("name") == "Name"
+<pre class="brush: python">from_CamelCase("MyFunctionName") == "my_function_name"
+from_CamelCase("IPhone") == "i_phone"
+from_CamelCase("ThisFunctionIsEmpty") == "this_function_is_empty"
+from_CamelCase("Name") == "name"
 </pre>
 {% endif %}
 </div>

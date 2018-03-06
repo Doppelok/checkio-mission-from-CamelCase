@@ -1,7 +1,7 @@
 <!-- Describe task in general -->
 
 <p>
-    You mission is to convert some function name (string) from Python format (for example "my_function_name") into CamelCase ("MyFunctionName"), where first char of every word is in uppercase and all words are concatenated in one.
+    You mission is to convert some function name (string) from CamelCase ("MyFunctionName") to Python format ("my_function_name") where all chars are in lowercase and all words are concatenated with underscore sign "_".
 </p>
 
 <!--<p style="text-align: center;">
@@ -10,11 +10,11 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Function name as string
+    <strong>Input: </strong> Function name as CamelCase string
 </p>
 
 <p>
-    <strong>Output: </strong> The same string, but in CamelCase
+    <strong>Output: </strong> The same string, but in under_score
 </p>
 
 
@@ -24,16 +24,16 @@
 <strong>Example:</strong>
 </p>
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">toCamelCase("my_function_name") == "MyFunctionName"
-toCamelCase("i_phone") == "IPhone"
-toCamelCase("this_function_is_empty") == "ThisFunctionIsEmpty"
-toCamelCase("name") == "Name"
+<pre class="brush: javascript">fromCamelCase("MyFunctionName") == "my_function_name"
+fromCamelCase("IPhone") == "i_phone"
+fromCamelCase("ThisFunctionIsEmpty") == "this_function_is_empty"
+fromCamelCase("Name") == "name"
 </pre>
 {% else %}
-<pre class="brush: python">to_CamelCase("my_function_name") == "MyFunctionName"
-to_CamelCase("i_phone") == "IPhone"
-to_CamelCase("this_function_is_empty") == "ThisFunctionIsEmpty"
-to_CamelCase("name") == "Name"
+<pre class="brush: python">from_CamelCase("MyFunctionName") == "my_function_name"
+from_CamelCase("IPhone") == "i_phone"
+from_CamelCase("ThisFunctionIsEmpty") == "this_function_is_empty"
+from_CamelCase("Name") == "name"
 </pre>
 {% endif %}
 </div>
