@@ -4,8 +4,8 @@ def from_CamelCase(name):
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
-    assert from_CamelCase("MyFunctionName") == "my_function_name"
-    assert from_CamelCase("IPhone") == "i_phone"
-    assert from_CamelCase("ThisFunctionIsEmpty") == "this_function_is_empty"
-    assert from_CamelCase("Name") == "name"
+    assert from_camel_case("MyFunctionName") == "my_function_name"
+    assert from_camel_case("IPhone") == "i_phone"
+    assert from_camel_case("ThisFunctionIsEmpty") == "this_function_is_empty"
+    assert from_camel_case("Name") == "name"
 
