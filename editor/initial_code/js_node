@@ -8,7 +8,7 @@ function fromCamelCase(name) {
 var assert = require('assert');
 if (!global.is_checking) {
     console.log('Example:')
-    console.log(fromCamelCase("Name"))
+    console.log(fromCamelCase('Name'))
 
     // These "asserts" are used for self-checking and not for an auto-testing
     assert.equal(fromCamelCase("MyFunctionName"), "my_function_name")
