@@ -24,10 +24,8 @@
 <strong>Example:</strong>
 </p>
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">fromCamelCase("MyFunctionName") == "my_function_name"
-fromCamelCase("IPhone") == "i_phone"
-fromCamelCase("ThisFunctionIsEmpty") == "this_function_is_empty"
-fromCamelCase("Name") == "name"
+<pre class="brush: javascript">fromCamelCase('MyFunctionName') == 'my_function_name'
+fromCamelCase('IPhone') == 'i_phone'
 </pre>
 {% else %}
 <pre class="brush: python">from_camel_case("MyFunctionName") == "my_function_name"
