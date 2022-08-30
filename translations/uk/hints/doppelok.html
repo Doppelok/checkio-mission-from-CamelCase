@@ -1,0 +1,156 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        Я не знаю, як розпочати вирішення цієї місії
+    </div>
+    <div class="answer">
+        Ідея в тому, що тобі потрібно знайти кожну велику літеру, зробити її маленькою та вставити перед нею нижнє підкреслення.
+        Можеш подумати як використати тут цикли for.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Мені потрібна допомога, щоб продовжити місію
+    </div>
+    <div class="answer">
+        Тобі буде корисно прочитати трохи інформації про:
+        <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=isupper#str.isupper'>str.isupper()</a>
+        (<a href='https://www.w3schools.com/python/ref_string_isupper.asp'>приклад</a> ),
+        <a href='https://docs.python.org/3/tutorial/datastructures.html'>list.append()</a>
+        (<a href='https://www.w3schools.com/python/ref_list_append.asp'>приклад</a> ), та
+        <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=join#str.join'>str.join()</a>
+        (<a href='https://www.w3schools.com/python/ref_string_join.asp'>приклад</a> ).
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Потрібна допомога!
+    </div>
+    <div class="answer">
+        Отже, нам потрібно пройтись по рядку та знайти кожну велику літеру. Для цього використаємо цикл for та умову if.
+        В у мові if будемо перевіряти чи літера велика, чи ні.
+        <pre class="brush: python">
+name = "MyFunctionName"
+for ch in name:
+    if ch.isupper():  # Тут перевіримо чи літера велика
+        print(ch)
+
+# output
+M
+F
+N
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я застряг. Мені потрібна маленька підказка.
+    </div>
+    <div class="answer">
+        Створимо змінну список, в який будемо додавати наші слова вже з маленької букви. Це буде мати наступний вигляд:
+        <pre class="brush: python">
+name = "MyFunctionName"
+words = []
+for ch in name:
+    if ch.isupper():
+        words.append(ch.lower())
+print(words)
+
+# output
+['m', 'f', 'n']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Нічого не працює. SOS
+    </div>
+    <div class="answer">
+        Гаразд, тобі потрібно додати ще й інші літери з назви функції. Тож допишемо ще else до нашої умови if.
+        <pre class="brush: python">
+name = "MyFunctionName"
+words = []
+for ch in name:
+    if ch.isupper():
+        words.append(ch.lower())
+    else:
+        words[-1] += ch  # Якщо літера маленька, ми просто додаємо її до минулого слова
+            # до тих пір, поки знову не зустрінемо велику літеру
+print(words)
+
+# output
+['my', 'function', 'name']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Не хочу здаватись, допоможи!
+    </div>
+    <div class="answer">
+        Тобі залишилось обернути код у вираз функції та вивести об'єднаний список (замість пробілів при об'єднанні використай "_").
+        <pre class="brush: python">
+def from_camel_case(name):
+    words = []
+    for ch in name:
+        if ch.isupper():
+            words.append(ch.lower())
+        else:
+            words[-1] += ch
+    return '_'.join(words)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я хочу бути кращим з кращих ПРОГРАМІСТІВ!!! ПОКАЗАЖИ МЕНІ БІЛЬШЕ РІШЕНЬ!!1!!!11!
+    </div>
+    <div class="answer">
+        Добре, добре! Оце настрій!=)
+        Це рішення буде важкувато зрозуміти. Тут використовують модуль
+        <a href='https://docs.python.org/3.10/library/re.html'>"re"</a> .
+        <pre class="brush: python">
+import re
+
+
+def from_camel_case(name: str) -> str:
+    return '_'.join(i.lower() for i in re.findall('[A-Z][^A-Z]*',  name))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я хочу більше!
+    </div>
+    <div class="answer">
+        Подивись на цей розв'язок. Доволі цікаве рішення з використанням f-рядка. Де кожна велика літера замінюється на
+        маленьку літеру з "_", наприклад "D" заміниться на "_d". А в кінці просто відрізають лишнє "_", тому що перша літера була великою.
+        <pre class="brush: python">
+
+def from_camel_case(name: str) -> str:
+    res = ''
+    for i in name:
+        res += f"_{i.lower()}" if i.isupper() else i
+
+    return res.lstrip("_")
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я кажу, більше!
+    </div>
+    <div class="answer">
+        Дивись, дивись! Ми могли б уникнути зайвої змінної використовуючи метод str.replace().
+        <pre class="brush: python">
+def from_camel_case(name: str) -> str:
+    for i in name:
+        if i.isupper():
+            name=name.replace(i,'_'+i.lower())
+    return name[1:]
+        </pre>
+    </div>
+</div>
+
+
+</body>

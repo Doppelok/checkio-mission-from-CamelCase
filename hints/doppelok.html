@@ -1,0 +1,158 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        I don't know how to start solving this mission
+    </div>
+    <div class="answer">
+        The idea is that you need to find each uppercase letter, make it lowercase, and insert an underscore in front of it.
+         You can think about how to use for loops here.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I need help to continue the mission
+    </div>
+    <div class="answer">
+        It will be useful for you to read some information about:
+        <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=isupper#str.isupper'>str.isupper()</a>
+        (<a href='https://www.w3schools.com/python/ref_string_isupper.asp'>example</a> ),
+        <a href='https://docs.python.org/3/tutorial/datastructures.html'>list.append()</a>
+        (<a href='https://www.w3schools.com/python/ref_list_append.asp'>example</a> ), and
+        <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=join#str.join'>str.join()</a>
+        (<a href='https://www.w3schools.com/python/ref_string_join.asp'>example</a> ).
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Need help!
+    </div>
+    <div class="answer">
+        So we need to go through the string and find every capital letter. For this, we will use the for loop and the if condition.
+         In the if language, we will check whether the letter is uppercase or not.
+        <pre class="brush: python">
+name = "MyFunctionName"
+for ch in name:
+    if ch.isupper():  # Here we will check whether the letter is capital
+        print(ch)
+
+# output
+M
+F
+N
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I'm stuck. I need a little hint.
+    </div>
+    <div class="answer">
+        Let's create a variable list to which we will add our words starting with a lowercase letter. It will look like this:
+        <pre class="brush: python">
+name = "MyFunctionName"
+words = []
+for ch in name:
+    if ch.isupper():
+        words.append(ch.lower())
+print(words)
+
+# output
+['m', 'f', 'n']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nothing works. SOS
+    </div>
+    <div class="answer">
+        Okay, you need to add some more letters from the function name. So let's add "else" to our if condition.
+        <pre class="brush: python">
+name = "MyFunctionName"
+words = []
+for ch in name:
+    if ch.isupper():
+        words.append(ch.lower())
+    else:
+        words[-1] += ch  # If the letter is lowercase, we simply add it to the previous word
+            # until we encounter an uppercase letter again
+print(words)
+
+# output
+['my', 'function', 'name']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I don't want to give up, help!
+    </div>
+    <div class="answer">
+        All you have to do is wrap the code in a function expression and output the combined
+        list (use "_" instead of spaces when combining).
+        <pre class="brush: python">
+def from_camel_case(name):
+    words = []
+    for ch in name:
+        if ch.isupper():
+            words.append(ch.lower())
+        else:
+            words[-1] += ch
+    return '_'.join(words)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I want to be the best of the best PROGRAMMERS!!! SHOW ME MORE SOLUTIONS!!1!!!11!
+    </div>
+    <div class="answer">
+        Okay, okay! That's the spirit!=)
+        This solution will be difficult to understand. The
+        <a href='https://docs.python.org/3.10/library/re.html'>"re"</a> module is used here.
+        <pre class="brush: python">
+import re
+
+
+def from_camel_case(name: str) -> str:
+    return '_'.join(i.lower() for i in re.findall('[A-Z][^A-Z]*',  name))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I want more!
+    </div>
+    <div class="answer">
+        Look at this solution. Quite an interesting solution using the f-line. Where every uppercase letter is replaced
+        with a lowercase letter with "_", for example "D" will be replaced with "_d". And at the end, they simply cut
+        off the extra "_", because the first letter was capital.
+        <pre class="brush: python">
+
+def from_camel_case(name: str) -> str:
+    res = ''
+    for i in name:
+        res += f"_{i.lower()}" if i.isupper() else i
+
+    return res.lstrip("_")
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I say more!
+    </div>
+    <div class="answer">
+        Look, look! We could avoid the redundant variable by using the str.replace() method.
+        <pre class="brush: python">
+def from_camel_case(name: str) -> str:
+    for i in name:
+        if i.isupper():
+            name=name.replace(i,'_'+i.lower())
+    return name[1:]
+        </pre>
+    </div>
+</div>
+
+
+</body>
